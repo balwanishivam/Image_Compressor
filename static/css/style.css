@@ -39,15 +39,6 @@ div.header>span {
     align-items: center;
 }
 
-.right {
-    float: right;
-    width: 50%;
-    height: 100%;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
 span {
     font-size: 20px;
     font-weight: 800;
@@ -205,4 +196,44 @@ span {
 
 .display-none {
     display: none;
+}
+
+input {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #bdbdbd;
+}
+
+.not-writable {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-output {
+    border: 2px solid #bdbdbd;
+    border-radius: 5px;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.file-output img {
+    width: 100%;
+    height: 100%;
+}
+
+.right>input {
+    margin: 25px;
 }
