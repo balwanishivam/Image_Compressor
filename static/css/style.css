@@ -1,0 +1,136 @@
+body {
+    margin: 0px;
+    background-color: #F5F6F8;
+}
+
+div.header>span {
+    display: block;
+    padding: 13px 16px;
+}
+
+.header {
+    padding: 10px;
+    overflow: hidden;
+    background-color: #070413;
+    text-align: center;
+    font-weight: 800;
+    font-size: 50px;
+    color: white;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+}
+
+#banner-url {
+    width: 500px;
+    height: 60px;
+    border: 2px solid #bdbdbd;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.custom-file-input {
+    color: #ffffff;
+    border: 2px solid #bdbdbd;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.custom-file-input-border {
+    width: 64px;
+    height: 64px;
+    border: 3px solid #264bbb;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 205px;
+    margin-right: 100px;
+    margin-top: 110px;
+    cursor: pointer;
+}
+
+.custom-file-input-border input {
+    height: 100%;
+    cursor: pointer;
+}
+
+.custom-file-input-border span {
+    position: relative;
+    top: 40px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #264bbb;
+}
+
+.vector-upload {
+    position: relative;
+    align-items: center;
+    margin: auto;
+    top: 15px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.custom-upload-border {
+    margin-top: 30px;
+    width: 269px;
+    height: 64px;
+    border: 3px solid #264bbb;
+    border-radius: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+.upload-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-upload-border span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #264bbb;
+    width: 150px;
+}
+
+.image-preview {
+    position: relative;
+    width: 500px;
+}
+
+.image-preview .btn {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    border-radius: 50%;
+    color: red;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    width: 26px;
+}
