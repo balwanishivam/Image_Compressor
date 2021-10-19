@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Compression</title>
+	<script src="{% static 'js/main.js' %}" defer></script>
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+		<div class="header">
+			<span>Image Compression</span>
+		</div>
+	</header>
+
+	<div class="container">
+		<!-- Left hand side -->
+		<div class="left">
+			<span>Before Compression</span>
+			<div class="custom-file-input" id="file-input">
+				<div class="custom-file-input-border" id="fakeFile">
+					<div class="vector-upload">
+						<img src="{% static 'assets/Vector 2.png' %}">
+						<input type="file" id="selectedFile" name="banner-image-fake"
+							accept="image/png, image/jpeg, image/jpg" hidden="hidden" />
+						<input type="text" id="uploadFile" name="banner-image-real" hidden />
+					</div>
+					<span>Upload</span>
+				</div>
+			</div>
+			<div class="loader-wrapper" id="loader-wrapper">
+				<div class="loader-container">
+					<img src="{% static 'assets/loading.svg' %}" width="50" height="50" class="loader">
+				</div>
+			</div>
+			<div class="image-preview" id="image-preview"></div>
+			<div class="feedback" id="feedback"></div>
+
+			<label for="variance">Variance: </label>
+			<input type="text" id="variance" name="variance" value=0.95 />
+
+			<br>
+			<label for="dimensions">Dimensions: </label>
+			<input type="text" id="dimensions" name="dimensions" class="not-writable" readonly />
+
+		</div>
+
+		<!-- Right hand side -->
+		<div class="right">
+			<span>After Compression</span>
+			<div class="file-output">
+				<img src="https://betaserver-assets.s3.amazonaws.com/media/yashshah2820/2020/9/6/Rectangle_38_ND1iG20.png"
+					alt="">
+			</div>
+
+			<label for="output-dim">Dimensions: </label>
+			<input type="text" id="output-dim" name="output-dim" class="not-writable" readonly />
+		</div>
+	</div>
+
+</body>
+
+</html>
