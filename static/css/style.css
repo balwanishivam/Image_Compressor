@@ -1,11 +1,15 @@
 body {
     margin: 0px;
     background-color: #F5F6F8;
+    font-family: 'Open Sans', sans-serif;
 }
 
 div.header>span {
     display: block;
     padding: 13px 16px;
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
 }
 
 .header {
@@ -31,6 +35,8 @@ div.header>span {
     width: 50%;
     height: 100%;
     padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .right {
@@ -38,7 +44,17 @@ div.header>span {
     width: 50%;
     height: 100%;
     padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
+
+span {
+    font-size: 20px;
+    font-weight: 800;
+    font-weight: bold;
+    color: #070413;
+}
+
 
 #banner-url {
     width: 500px;
@@ -54,6 +70,8 @@ div.header>span {
     width: 500px;
     height: 300px;
     border-radius: 5px;
+    margin: auto;
+    margin-top: 25px;
 }
 
 .custom-file-input-border {
@@ -120,6 +138,8 @@ div.header>span {
 .image-preview {
     position: relative;
     width: 500px;
+    margin: auto;
+    margin-top: 25px;
 }
 
 .image-preview .btn {
@@ -133,4 +153,56 @@ div.header>span {
     border: none;
     font-weight: bold;
     width: 26px;
+    cursor: pointer;
+}
+
+.feedback {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    background: #86e2a5;
+    border-radius: 5px;
+    height: max-content;
+    color: #003300;
+    font-size: 15px;
+    width: max-content;
+    text-align: center;
+}
+
+.feedback span {
+    padding: 10px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.loader-wrapper {
+    display: none;
+    vertical-align: middle;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+}
+
+.loader-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.loader {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.display-none {
+    display: none;
 }

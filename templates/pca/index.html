@@ -21,7 +21,7 @@
 	<div class="container">
 		<!-- Left hand side -->
 		<div class="left">
-			<label class="required" for="banner">Banner</label>
+			<span>Before Compression</span>
 			<div class="custom-file-input" id="file-input">
 				<div class="custom-file-input-border" id="fakeFile">
 					<div class="vector-upload">
@@ -34,14 +34,17 @@
 				</div>
 			</div>
 			<div class="loader-wrapper" id="loader-wrapper">
-				<img src="{% static 'assets/loading.svg' %}" width="50" height="50" class="loader">
+				<div class="loader-container">
+					<img src="{% static 'assets/loading.svg' %}" width="50" height="50" class="loader">
+				</div>
 			</div>
 			<div class="image-preview" id="image-preview"></div>
+			<div class="feedback" id="feedback"></div>
 		</div>
 
 		<!-- Right hand side -->
 		<div class="right">
-			<span>Right</span>
+			<span>After Compression</span>
 		</div>
 	</div>
 
