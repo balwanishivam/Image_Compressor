@@ -8,6 +8,7 @@ django = "*"
 scipy = "*"
 matplotlib = "*"
 numpy = "*"
+pillow = "*"
 
 [dev-packages]
 
