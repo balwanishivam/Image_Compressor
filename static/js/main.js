@@ -1,4 +1,4 @@
-// Get elements for banner image upload
+// Get elements for image upload
 const fakeFileInput = document.getElementById("fakeFile");
 const realFileInput = document.getElementById("selectedFile");
 const uploadFilePath = document.getElementById("uploadFile");
@@ -7,38 +7,32 @@ fakeFileInput.addEventListener("click", function () {
     realFileInput.click();
 });
 
-var upload = "https://betaserver-assets.s3.amazonaws.com/media/yashshah2820/2020/9/6/Rectangle_38_ND1iG20.png";
-// Banner Image Preview upload and loader call
+// var upload = "https://betaserver-assets.s3.amazonaws.com/media/yashshah2820/2020/9/6/Rectangle_38_ND1iG20.png";
+// Image Preview upload and loader call
 const wrapperLoader = document.getElementById("loader-wrapper");
 realFileInput.addEventListener("change", function (e) {
     document.getElementById("file-input").classList.add("display-none");
 
     const files = e.target.files;
     console.log(files);
-    url = "https://staging-beta-api.hapramp.com/files/";
+    url = "http://127.0.0.1:8000/upload-file/";
     const formData = new FormData();
-    formData.append("upload", files[0]);
-    formData.append("is_temporary", false);
+    formData.append("document", files[0]);
     wrapperLoader.style.setProperty("display", "block");
 
-    // fetch(url, {
-    //         method: "POST",
-
-    //         body: formData,
-
-    //         headers: {
-    //             Authorization: "Basic eWFzaHNoYWgyODIwOk5zQVRhakwyQXhKRmhoaQ==",
-    //         },
-    //     })
-    //     .then((response) => response.json())
-
-    //     .then((data) => {
-    //         addImage(data.upload);
-    //     });
-    addImage(upload);
+    fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            addImage(data.url);
+        });
+    // addImage(upload);
 });
 
-// Banner Image loader and view
+// Image loader and view
 const feedback = document.getElementById("feedback");
 
 function addImage(upload) {
