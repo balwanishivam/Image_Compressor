@@ -9,6 +9,8 @@ scipy = "*"
 matplotlib = "*"
 numpy = "*"
 pillow = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 black = "*"
