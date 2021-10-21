@@ -20,8 +20,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
+from pca.views import index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("upload-file/",SaveFileView.as_view(), name="file-upload")
+    path("upload-file/",SaveFileView.as_view(), name="file-upload"),
+    path("", index, name="interface"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
