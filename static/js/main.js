@@ -14,13 +14,15 @@ realFileInput.addEventListener("change", function (e) {
     document.getElementById("file-input").classList.add("display-none");
 
     const files = e.target.files;
-    console.log(files);
     url = "http://127.0.0.1:8000/upload-file/";
+
     const formData = new FormData();
     formData.append("document", files[0]);
     wrapperLoader.style.setProperty("display", "block");
-    var variance=document.getElementById("variance").value;
-    formData.append("variance",variance);
+
+    var variance = document.getElementById("variance").value;
+    formData.append("variance", variance);
+
     fetch(url, {
             method: "POST",
             body: formData,
@@ -28,7 +30,8 @@ realFileInput.addEventListener("change", function (e) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
-            addImage(data.url);
+            addImage(data.url, data.orig_dim);
+            imageAfterCompress(data.compressed_file, data.req_dim);
         });
     // addImage(upload);
 });
@@ -36,7 +39,7 @@ realFileInput.addEventListener("change", function (e) {
 // Image loader and view
 const feedback = document.getElementById("feedback");
 
-function addImage(upload) {
+function addImage(upload, origDim) {
     const imageHolder = document.getElementById("image-preview");
     document.getElementById("image-preview").classList.remove("display-none");
 
@@ -95,6 +98,8 @@ function addImage(upload) {
     setTimeout(function () {
         feedback.innerHTML = '';
     }, 5000);
+
+    document.getElementById("dimensions").value = origDim;
 }
 
 function previewImage(upload) {
@@ -131,4 +136,17 @@ function removeImage() {
     document.getElementById("file-input").classList.remove("display-none");
     bannerUpload = '';
     feedback.innerHTML = '';
+    const fileHolder = document.getElementById("file-output");
+    fileHolder.innerHTML = '';
+    document.getElementById("output-dim").value = '';
+    document.getElementById("dimensions").value = '';
+}
+
+function imageAfterCompress(url, outputDim) {
+    const fileHolder = document.getElementById("file-output");
+    const outImage = document.createElement("img");
+    outImage.setAttribute("src", url);
+
+    fileHolder.appendChild(outImage);
+    document.getElementById("output-dim").value = outputDim;
 }
