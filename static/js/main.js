@@ -19,7 +19,8 @@ realFileInput.addEventListener("change", function (e) {
     const formData = new FormData();
     formData.append("document", files[0]);
     wrapperLoader.style.setProperty("display", "block");
-
+    var variance=document.getElementById("variance").value;
+    formData.append("variance",variance);
     fetch(url, {
             method: "POST",
             body: formData,

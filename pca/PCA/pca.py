@@ -1,10 +1,10 @@
-%matplotlib inline\
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import glob
-from PIL import Image
-from matplotlib import cm
+from django.conf import settings
+dirname = os.path.dirname(__file__)
+
 
 def covariance(A):
   # find covariance matrix
@@ -17,7 +17,8 @@ def eigen_val_vec(A):
 
 def transform(X,variance):
   # Eigen values of covariance matrix
-  m, n = np.shape(X) 
+  [m,n]=np.shape(X)
+  # X=X[:,:,0]
   cov=covariance(X)
   eigval, eigvec = eigen_val_vec(cov)
   pair=[(np.abs(eigval[i]),eigvec[:,i]) for i in range(len(eigval))]
@@ -40,20 +41,31 @@ def transform(X,variance):
   P=P.T
   Y=np.matmul(P,X)
 
+
   # Converting Back to original dimension but with lesser components than available
   PP=P.T
   YY=Y
   X_approx=np.matmul(PP,YY)
 
-  # Reduced Image PLotting
-  X_reduced = np.reshape(X_approx,[m,n])
 
-  return X_reduced,req_dim 
+  X_final = np.reshape(X_approx,[m,n])
+  # X_final=np.empty([m,n,o])
+  # for i in range(3):
+  #   X_final[:,:,i]=X_approx
+
+  return X_final,req_dim,eigval.shape[0]
+
+
+def image_to_mat(filename):
+  file_path=os.path.join(settings.MEDIA_ROOT,filename)
+  X = mpimg.imread(file_path)
+  return X
 
 def plot(X):
   plt.imshow(X)
   plt.colorbar()
 
-def image_to_mat(a):
-    X = mpimg.imread(a)
-    return X
+def get_dim(filename):
+  file_path=os.path.join(settings.MEDIA_ROOT,filename)
+  X = mpimg.imread(file_path)
+  return X.shape
