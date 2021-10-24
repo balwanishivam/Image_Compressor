@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Image Compression</title>
+	<title>Image Componenet Reduction</title>
 	<script src="{% static 'js/main.js' %}" defer></script>
 	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 </head>
@@ -14,7 +14,7 @@
 <body>
 	<header>
 		<div class="header">
-			<span>Image Compression</span>
+			<span>Image Component Reduction using PCA</span>
 		</div>
 	</header>
 
@@ -43,11 +43,17 @@
 
 			<label for="variance">Variance: </label>
 			<input type="text" id="variance" name="variance" value=0.99 />
-
 			<br>
-			<label for="dimensions">Components: </label>
-			<input type="text" id="dimensions" name="dimensions" class="not-writable" readonly />
-
+			<div class="span-class"><span>Components</span></div>
+			<br>
+			<label for="red-input">Red: </label>
+			<input type="text" id="red-input" name="red-input" class="not-writable" readonly />
+			<br>
+			<label for="green-input">Green: </label>
+			<input type="text" id="green-input" name="green-input" class="not-writable" readonly />
+			<br>
+			<label for="blue-input">Blue: </label>
+			<input type="text" id="blue-input" name="blue-input" class="not-writable" readonly />
 		</div>
 
 		<!-- Right hand side -->
@@ -55,9 +61,17 @@
 			<span>After Compression</span>
 			<div class="file-output" id="file-output">
 			</div>
-
-			<label for="output-dim">Components: </label>
-			<input type="text" id="output-dim" name="output-dim" class="not-writable" readonly />
+			<br>
+			<span>Components</span>
+			<br>
+			<label for="red-output">Red: </label>
+			<input type="text" id="red-output" name="red-output" class="not-writable" readonly />
+			<br>
+			<label for="greeb-output">Green: </label>
+			<input type="text" id="green-output" name="green-output" class="not-writable" readonly />
+			<br>
+			<label for="blue-output">Blue: </label>
+			<input type="text" id="blue-output" name="blue-output" class="not-writable" readonly />
 		</div>
 	</div>
 

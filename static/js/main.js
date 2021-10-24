@@ -7,7 +7,6 @@ fakeFileInput.addEventListener("click", function () {
     realFileInput.click();
 });
 
-// var upload = "https://betaserver-assets.s3.amazonaws.com/media/yashshah2820/2020/9/6/Rectangle_38_ND1iG20.png";
 // Image Preview upload and loader call
 const wrapperLoader = document.getElementById("loader-wrapper");
 realFileInput.addEventListener("change", function (e) {
@@ -29,11 +28,9 @@ realFileInput.addEventListener("change", function (e) {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             addImage(data.url, data.orig_dim);
             imageAfterCompress(data.compressed_file, data.req_dim);
         });
-    // addImage(upload);
 });
 
 // Image loader and view
@@ -99,7 +96,9 @@ function addImage(upload, origDim) {
         feedback.innerHTML = '';
     }, 5000);
 
-    document.getElementById("dimensions").value = origDim;
+    document.getElementById("red-input").value = origDim.red;
+    document.getElementById("green-input").value = origDim.green;
+    document.getElementById("blue-input").value = origDim.blue;
 }
 
 function previewImage(upload) {
@@ -146,7 +145,9 @@ function imageAfterCompress(url, outputDim) {
     const fileHolder = document.getElementById("file-output");
     const outImage = document.createElement("img");
     outImage.setAttribute("src", url);
-
     fileHolder.appendChild(outImage);
-    document.getElementById("output-dim").value = outputDim;
+
+    document.getElementById("red-output").value = outputDim.red;
+    document.getElementById("green-output").value = outputDim.green;
+    document.getElementById("blue-output").value = outputDim.blue;
 }

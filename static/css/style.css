@@ -234,6 +234,10 @@ input {
     height: 100%;
 }
 
-.right>input {
-    margin: 25px;
+.span-class {
+    margin-top: 10px;
+}
+
+#red-input {
+    margin-top: 0px;
 }

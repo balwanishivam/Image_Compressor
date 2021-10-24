@@ -17,13 +17,8 @@ class SaveFileView(views.APIView):
             file = fs.save(request_file.name, request_file)
             fileurl = fs.url(file)
             file_name, _, org_format = file.partition(".")
-            # dims = get_dim(file)
-            # new_file = convert(file, dims[1], dims[0])
             X = image_to_mat(file)
             X_reduced, req_dim, orig_dim = transform(X, float(variance))
-            print(X_reduced.shape,X.shape)
-            print(req_dim)
-            print(orig_dim)
             file_converted = save(X_reduced, org_format, file_name)
             new_file_url = fs.url(file_converted)
 

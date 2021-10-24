@@ -1,9 +1,7 @@
 import os
-import numpy as np
+
 from django.conf import settings
 from PIL import Image
-import matplotlib as plt
-
 
 
 def save(X, format, file):
