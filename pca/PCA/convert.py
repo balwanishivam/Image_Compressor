@@ -20,7 +20,7 @@ def convert(jpg_file, y, x):
     jpg = jpg.resize((y, x), Image.BILINEAR)
     file_name, _, org_format = jpg_file.partition(".")
     name = file_name + ".pgm"
-    b_w=file_name+"."+org_format
+    b_w = file_name + "." + org_format
     new_image = os.path.join(settings.MEDIA_ROOT, name)
     new_image_b_w = os.path.join(settings.MEDIA_ROOT, b_w)
     jpg.save(new_image)
