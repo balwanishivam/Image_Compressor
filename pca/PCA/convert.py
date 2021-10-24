@@ -1,7 +1,9 @@
 import os
-
+import numpy as np
 from django.conf import settings
 from PIL import Image
+import matplotlib as plt
+
 
 
 def save(X, format, file):
@@ -11,6 +13,7 @@ def save(X, format, file):
     name = file + "converted_image." + format.lower()
     new_image = os.path.join(settings.MEDIA_ROOT, name)
     im.save(new_image)
+    # plt.image.imsave(new_image, array)
     return name
 
 
